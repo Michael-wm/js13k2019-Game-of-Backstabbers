@@ -193,7 +193,7 @@ button.-i {
     opacity: 1;
 }
 
-.tm {
+#T .tm {
     cursor: pointer;
     display: flex;
     font-size: 20px;
@@ -201,22 +201,22 @@ button.-i {
     margin-bottom: 12px;
 }
 
-.tm.-i {
+#T .tm.-i {
     opacity: .5;
     margin: 8px 16px;
 }
 
-.tm.-se {
+#T .tm.-se {
     font-weight: bold;
 }
 
-.tm .name {
+#T .tm .name {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 250px;
 }
 
-.tm .level {
+#T .tm .level {
     margin-right: 16px;
     position: relative;
     text-align: center;

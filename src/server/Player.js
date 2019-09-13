@@ -97,8 +97,8 @@ class Player {
   }
 
   gps (obfuscate = true) {
-    const { id, name, level, active, ti } = this
-    return { id: obfuscate ? id.substr(0, 8) : id, name, level, active, ti }
+    const { id, name, level, active, ti, pdt } = this
+    return { id: obfuscate ? id.substr(0, 8) : id, name, level, active, ti, pdt }
   }
 
   gs () {

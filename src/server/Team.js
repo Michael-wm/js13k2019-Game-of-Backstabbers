@@ -20,15 +20,15 @@ class Team {
   }
 
   update () {
-    this.members.sort((a, b) => {
-      const playerA = this.gm(a.id)
-      const playerB = this.gm(b.id)
+    /*this.members.sort((a, b) => {
+      const pA = this.gm(a.id)
+      const pB = this.gm(b.id)
 
-      if (!playerB || !playerA || !playerA.active) return 1
-      else if (!playerB.active) return -1
-      const level = playerB.level - playerA.level
-      return level !== 0 ? level : playerB.pdt - playerA.pdt
-    })
+      if (!pA || !pA.active) return 1
+      else if (!pB || !pB.active) return -1
+      const level = pB.level - pA.level
+      return level !== 0 ? level : pB.pdt - pA.pdt
+    })*/
     E.fire('TU')
   }
 

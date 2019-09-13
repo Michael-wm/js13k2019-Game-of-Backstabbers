@@ -9,11 +9,11 @@ function Game () {
   let state = 'w'
   let gameInterval
   let playerManager = PlayerManager()
-  let tributeToWin = 5000
+  let tributeToWin = 6000
   let pdt = {
-    red: 100,
-    green: 100,
-    blue: 100
+    red: 0,
+    green: 0,
+    blue: 0
   }
 
   E.on('TP', ti => {
@@ -53,7 +53,6 @@ function Game () {
     } else {
       playerManager.aP(id, name, socket, coil)
     }
-    tributeToWin = 5000 * (Math.ceil(playerManager.gPL().length / 3))
     updateTribute(socket)
 
     if (state === 'w' && playerManager.gPL().length >= 3) {

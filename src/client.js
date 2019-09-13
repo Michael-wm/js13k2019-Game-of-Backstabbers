@@ -112,6 +112,12 @@ global.byC = c => document.getElementsByClassName(c)
       sigilRef.insertAdjacentHTML('afterbegin', sigil[activeTeam])
       // draw team members
       teamList.innerHTML = ''
+      members[activeTeam].sort((a, b) => {
+        if (!a.active) return 1
+        else if (!b.active) return -1
+        const level = b.level - a.level
+        return level !== 0 ? level : b.pdt - a.pdt
+      })
       members[activeTeam].forEach(member => teamList.insertAdjacentHTML('beforeend', `<li id="${member.id}" class="tm${!member.active ? ' -i' : ''}${member.id === playerId.substr(0, 8) ? ' -se' : ''}${member.id === activePlayer || (!activePlayer && member.id === playerId.substr(0, 8)) ? ' -s' : ''}"><div class="level"><div>${member.level}</div><svg viewBox="0 0 100 140">${bg[activeTeam]}</svg></div><div class="name">${member.name}</div></li>`))
       // add click handler to members
       Array.from(byC('tm')).forEach(member => {
