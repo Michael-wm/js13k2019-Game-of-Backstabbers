@@ -1,0 +1,726 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    zoom: 75%;
+}
+
+html, body, div, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body, input, button {
+    font-family: Palatino, Palatino Linotype, Georgia, serif;
+    user-select: none;
+}
+
+input {
+    color: #444;
+    border: 2px solid #ccc;
+    font-size: 32px;
+    height: 48px;
+    margin-right: 8px;
+    padding: 8px;
+    width: 256px;
+}
+
+button {
+    -webkit-appearance: none;
+    cursor: pointer;
+    height: 48px;
+    width: 128px;
+    background: #444;
+    color: #fff;
+    font-size: 20px;
+    box-shadow: 2px 4px 0 #aaa;
+    font-family: serif;
+    transform: translateY(-2px);
+    transition: box-shadow .2s, transform .2s;
+}
+
+button:hover {
+    box-shadow: 3px 6px 2px #aaa;
+    transform: translateY(-4px);
+}
+
+button.-i {
+    background: #aaa;
+    box-shadow: 0 0 0 #aaa;
+    pointer-events: none;
+    transform: translateY(0);
+}
+
+#NI {
+    background-color: white;
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 9;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 90px 90px;
+}
+
+#NI .i-w {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#G {
+    background: radial-gradient(circle at 38% 0%, #fefefe 0%, #f0f0f0 52%, #eee 100%), #fff;
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+#G.-at {
+    background: #ccc;
+}
+
+#T {
+    bottom: 0;
+    background: #fff;
+    border-left: 4px solid #aaa;
+    padding: 88px 0 0 72px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 350px;
+    transition: width 1s;
+    z-index: 2;
+}
+
+#T * {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+#T.-w {
+    width: 100%;
+}
+
+#T.-w #TS, #T.-w #TL {
+    opacity: 0;
+}
+
+#T.-w #TW {
+    opacity: 1;
+}
+
+#T.-w:after {
+    content: "Waiting for Players...";
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 20px;
+}
+
+#T.-w #TN {
+    font-size: 96px;
+    position: absolute;
+    top: 30%;
+    right: 50%;
+    transform: translateX(50%);
+    white-space: nowrap;
+}
+
+#T.-w #SI {
+    top: 30%;
+    left: 150px;
+    transform: scale(1.5);
+}
+
+#TN {
+    font-size: 36px;
+    margin-bottom: 32px;
+    transition: font-size 1s;
+}
+
+#TW {
+    font-size: 48px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateX(50%);
+    opacity: 0;
+}
+
+#SI {
+    top: 56px;
+    position: absolute;
+    left: -50px;
+    width: 100px;
+    height: 150px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#SI svg {
+    width: 100%;
+}
+
+#TS {
+    position: absolute;
+    top: 220px;
+    left: -25px;
+    width: 50px;
+}
+
+#TS .ts {
+    cursor: pointer;
+    margin-bottom: 16px;
+    opacity: .25;
+    transition: opacity .5s;
+}
+
+#TS .ts:hover {
+    opacity: 1;
+}
+
+.tm {
+    cursor: pointer;
+    display: flex;
+    font-size: 20px;
+    line-height: 36px;
+    margin-bottom: 12px;
+}
+
+.tm.-i {
+    opacity: .5;
+    margin: 8px 16px;
+}
+
+.tm.-se {
+    font-weight: bold;
+}
+
+.tm .name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+}
+
+.tm .level {
+    margin-right: 16px;
+    position: relative;
+    text-align: center;
+    width: 48px;
+}
+
+.level svg {
+    height: 100%;
+    opacity: .5;
+    transform: translateY(-14px);
+    width: 100%;
+}
+
+.level svg * {
+    stroke: none;
+}
+
+.level div {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+
+.-s .level svg * {
+    fill: #444;
+    opacity: 1;
+}
+
+.-s .level div {
+    color: #fff;
+}
+
+.word::first-letter {
+    font-size: 72px;
+}
+
+#B {
+    background: #fff;
+    border: 4px solid #A67B19;
+    border-radius: 50%;
+    bottom: 24px;
+    box-shadow: 6px 9px 32px rgba(0, 0, 0, .15);
+    cursor: pointer;
+    height: 72px;
+    left: 32px;
+    padding: 12px;
+    position: fixed;
+    text-align: center;
+    transition: transform .2s, border .2s;
+    width: 72px;
+    z-index: 4;
+}
+
+#B:hover {
+    border-color: #DFC44F;
+    box-shadow: 6px 9px 32px rgba(0, 0, 0, .25);
+    transform: scale(1.05);
+}
+
+#B:active {
+    transform: scale(1);
+}
+
+#B svg {
+    height: 100%;
+    width: 100%;
+}
+
+#B div {
+    display: none;
+}
+
+#B.-a {
+    box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+    border-color: #aaa;
+}
+
+#B.-a svg {
+    height: 50%;
+}
+
+#B.-a div {
+    display: block;
+}
+
+#S {
+    align-content: flex-start;
+    bottom: 24px;
+    display: flex;
+    left: 160px;
+    position: fixed;
+    transition: transform .3s;
+    z-index: 5
+}
+
+#S.-a {
+    transform: translateY(150px);
+}
+
+.sw {
+    align-items: center;
+    background-color: rgba(255, 255, 255, .75);
+    border-radius: 12px;
+    display: flex;
+    height: 40px;
+    min-width: 120px;
+    margin-right: 32px;
+    padding: 4px 12px;
+}
+
+.sw .i {
+    height: 32px;
+    width: 32px;
+}
+
+.sw .i.-gold {
+    border-radius: 50%;
+    border: 2px solid #444;
+    color: #A67B19;
+    font-size: 20px;
+    font-weight: bold;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    width: 28px;
+}
+
+.sw .i.-v, .sw .i.-so {
+    padding: 4px;
+}
+
+.sw .value {
+    flex: 1;
+    text-align: right;
+}
+
+#A, #SDS {
+    bottom: -100px;
+    cursor: pointer;
+    left: 40%;
+    position: fixed;
+    background: rgba(255,255,255,.5);
+    padding: 0 24px;
+    border-radius: 12px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    transition: transform .2s;
+}
+
+#A.-sh {
+    transform: translateY(-150px);
+}
+
+.-at #SDS {
+    bottom: 50px;
+    transform: translateX(-150px);
+}
+
+#F {
+    left: 33%;
+    position: absolute;
+    top: 60%;
+    transform: translate(-50%, -50%);
+}
+
+#F .row {
+    display: flex;
+    height: 64px;
+}
+
+#F .row:nth-child(odd) {
+    transform: translateX(64px);
+}
+
+.row .field {
+    margin-right: 8px;
+    min-width: 124px;
+    position: relative;
+    transition: transform .2s;
+}
+
+.row .field:hover {
+    transform: translateY(-2px);
+}
+
+.row .field:active {
+    transform: translateY(5px) scale(.97);
+}
+
+.field svg {
+    cursor: pointer;
+}
+
+.field svg {
+    cursor: pointer;
+}
+
+.field.-b {
+    opacity: .25;
+    pointer-events: none;
+}
+
+.field.-b .price {
+    color: #777;
+}
+
+.field span {
+    font-weight: bold;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.field .level {
+    bottom: 0;
+    color: #777;
+    pointer-events: none;
+}
+
+.field .price {
+    color: #A67B19;
+    line-height: 76px;
+    pointer-events: none;
+}
+
+.field .house {
+    left: 50%;
+    position: absolute;
+    top: -20px;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.field .mine {
+    left: 50%;
+    position: absolute;
+    top: -42px;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.field .farm {
+    left: 50%;
+    position: absolute;
+    top: -36px;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.field .swords {
+    left: 50%;
+    position: absolute;
+    top: -16px;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.red .tile:hover {
+    fill: #F2DAE2;
+}
+
+.green .tile:hover {
+    fill: #DEF2DA;
+}
+
+.blue .tile:hover {
+    fill: #DAF2F2;
+}
+
+#SC {
+    background: white;
+    box-shadow: -3px 5px 16px rgba(0, 0, 0, .1);
+    height: 48px;
+    left: calc(50% - 225px);
+    position: fixed;
+    top: 84px;
+    transform: translateX(-50%);
+    width: 500px;
+}
+
+#SC.-a {
+    display: none;
+}
+
+#TB {
+    background: white;
+    border: 4px solid #80590D;
+    border-radius: 50%;
+    box-shadow: 6px 9px 24px rgba(204, 177, 41, .1);
+    color: #80590D;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    height: 80px;
+    left: -72px;
+    line-height: 80px;
+    position: absolute;
+    text-align: center;
+    transition: transform .2s, border .2s;
+    top: -16px;
+    width: 80px;
+    z-index: 2;
+}
+
+#TB:hover {
+    border-color: #CCB129;
+    transform: scale(1.1);
+}
+
+#TB:active {
+    transform: scale(1);
+}
+
+#TB.-br {
+    box-shadow: none;
+    border-color: #aaa;
+    color: #aaa;
+    pointer-events: none;
+}
+
+#CN {
+    position: absolute;
+    right: -80px;
+    top: -48px;
+}
+
+#TP {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    padding: 2px 0;
+}
+
+#TP .tb {
+    height: 8px;
+    transition: width .3s;
+}
+
+#TP .tb:nth-child(2) {
+    height: 6px;
+    opacity: .5;
+}
+
+#TP .tb:nth-child(3) {
+    height: 4px;
+    opacity: .33;
+}
+
+.tb.red {
+    background: #663014;
+}
+
+.tb.green {
+    background: #14663D;
+}
+
+.tb.blue {
+    background: #143066;
+}
+
+#M {
+    background: rgba(235, 235, 235, .75);
+    bottom: 0;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    left: 0;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+
+#M.-vs {
+    display: flex;
+    pointer-events: initial;
+}
+
+#D {
+    align-self: center;
+    background: #fff;
+    border: 4px solid #aaa;
+    box-shadow: 6px 9px 24px rgba(0, 0, 0, .2);
+    cursor: default;
+    min-height: 200px;
+    position: relative;
+    width: 500px;
+}
+
+#D .close {
+    background: #fff;
+    border: 4px solid #aaa;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 30px;
+    height: 64px;
+    padding: 16px;
+    position: absolute;
+    right: -24px;
+    top: -32px;
+    text-align: center;
+    transition: border .2s, transform .2s;
+    width: 64px;
+}
+
+#D .close:hover {
+    border-color: #444;
+    transform: scale(1.05);
+}
+
+.-wm {
+    filter: blur(3px);
+}
+
+#BD {
+    padding: 32px;
+    width: 100%;
+}
+
+#BD .stat {
+    display: flex;
+    font-size: 20px;
+    justify-content: space-between;
+    line-height: 32px;
+    margin-bottom: 8px;
+}
+
+#D .recruit {
+    display: flex;
+    padding: 32px;
+}
+
+#R, #C {
+    align-items: center;
+    background: #fff;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    text-align: center;
+    transition: opacity 2s;
+    z-index: 15;
+}
+
+#R div {
+    min-height: 100px;
+}
+
+#R .title {
+    font-size: 30px;
+}
+
+#R .winner {
+    font-size: 48px;
+    margin-bottom: 64px;
+    position: relative;
+}
+
+#R .winner .sigil {
+    left: -150px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+}
+
+#R .gs {
+    font-size: 24px;
+    text-align: center;
+}
+
+#R .gs div {
+    min-height: 48px;
+}
+
+#R .gs button {
+    margin-right: 12px;
+}
+
+#C {
+    z-index: 14;
+}
+
+@media screen and (min-width: 1400px) {
+    body {
+        zoom: 100%;
+    }
+
+    #T {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        zoom: 50%;
+    }
+}
